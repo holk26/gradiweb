@@ -2,50 +2,47 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useFetchShopifyQuery } from "../../redux/api/shopify";
 import Loading from "../../components/Loading"
-import styles from "../../style.module.css"
+import styles from "../../style.css"
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Stack from 'react-bootstrap/Stack';
+import Results from "../Results";
 
 const Home = () => {
+    const [total, setTotal] = useState(0);
+    const [cont, setCont] = useState(1);
 
-    const { data: shopify, isLoading, isSuccess, isFetching, error } = useFetchShopifyQuery();
+    const { data: shopifyX, isLoading, isSuccess, isFetching, error } = useFetchShopifyQuery();
 
-console.log(shopify);
+  
+    
 
     const RenderConten = () => {
         if (error) {
             return <p>{error.error}</p>
         } else if (isLoading || isFetching) {
             return <div>espere</div>
-        }else if (isSuccess && shopify?.available) {
-            return <div>Cargo</div>
+        }else if (isSuccess && shopifyX?.available) {
+            console.log("cargue");
+            return <Results shopify={shopifyX}/>
         }
     };
 
     
     return(
-            <div>
+        <>
+        {RenderConten()}
 
-                
+        </>   
 
-                <div>
-                        <div>
-                            <div>Catalog</div>
-                            <div>Sneckers</div>
-                            <div>{shopify?.title}</div>
-                        </div>
 
-                        <img src={shopify?.featured_image} />
 
-                </div>
-
-                <div>
-                    <h1>{shopify?.vendor}</h1>
-                    <h1>{shopify?.handle}</h1>
-                    <div></div>
-
-             
-                </div>
-
-        </div>
                 
     );
 }

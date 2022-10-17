@@ -1,0 +1,58 @@
+.btn-flat {
+    background-color: #f8f6f7;
+    color: rgb(17, 15, 15);
+    border-radius: 0%;
+  }
+
+  .btn-cart {
+    background-color: #050505;
+    color: white;
+    border-radius: 0%;
+  }
+
+  .btn-cart:hover {
+    background-color: #050505;
+    color: white;
+    border-radius: 0%;
+  }
+
+  .btn-flat:hover {
+    background-color: #f8f6f7;
+
+    border-color: #640101 4px;
+  }
+
+  .btn-lg {
+    width: 100%;
+    font-size: 1.5rem;
+  }
+
+
+  .input-Color{
+    color: #640101;
+
+  }
+
+  .input-Size{
+    color: #640101;
+
+
+  }
+
+
+
+  .radio {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+
