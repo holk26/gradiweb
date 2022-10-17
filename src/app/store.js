@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+
+import { shopifyApi } from "../redux/api/shopify";
+
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    [shopifyApi.reducerPath]: shopifyApi.reducer
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(shopifyApi.middleware),
 });
