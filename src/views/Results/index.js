@@ -72,7 +72,7 @@ const Results = ({ shopify }) => {
                 <Breadcrumb.Item active>{shopify?.title}</Breadcrumb.Item>
             </Breadcrumb>
 
-            <Row>
+            <Row className="margin mb-4">
             <Col md className="justify-content-md-center">             
             <Carousel variant="dark" fade onSelect={handleSelect}>
                             {shopify?.images.map((value, index) => (
@@ -119,13 +119,13 @@ const Results = ({ shopify }) => {
                                 </Col>
                             </Row>
 
-                            <Row className="margin mt-4">
-                                <Col lg>
+                            <Row className="margin mt-2">
+                                <Col lg className="mt-2">
                                 <Button variant="flat" size="lg">
                                 Add to favourite
                             </Button>
                                 </Col>
-                                <Col>
+                                <Col className="mt-2">
                                 <Button variant="cart" size="lg">
                                 Add to cart
                             </Button>

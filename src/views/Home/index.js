@@ -27,7 +27,7 @@ const Home = () => {
         if (error) {
             return <p>{error.error}</p>
         } else if (isLoading || isFetching) {
-            return <div>espere</div>
+            return <div className="mx-auto" style="width: 200px;"> Centered element</div>
         }else if (isSuccess && shopifyX?.available) {
             console.log("cargue");
             return <Results shopify={shopifyX}/>
@@ -39,11 +39,7 @@ const Home = () => {
         <>
         {RenderConten()}
 
-        </>   
-
-
-
-                
+        </>               
     );
 }
 
