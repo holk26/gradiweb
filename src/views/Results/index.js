@@ -11,7 +11,9 @@ import Form from 'react-bootstrap/Form';
 import Stack from 'react-bootstrap/Stack';
 import Image from 'react-bootstrap/Image'
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
-
+import Details from "./components/Details";
+import Figure from 'react-bootstrap/Figure';
+import Carousel from 'react-bootstrap/Carousel';
 
 const Results = ({ shopify }) => {
     const valor = shopify?.price.toString().slice(0,-2);
@@ -34,7 +36,13 @@ const Results = ({ shopify }) => {
     const currency = function(number){
         return new Intl.NumberFormat('en-IN', {style: 'currency',currency: 'USD', minimumFractionDigits: 2}).format(number);
     };
+
     
+    const [index, setIndex] = useState(0);
+
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex);
+    };
     
     return(
         <>
@@ -65,9 +73,21 @@ const Results = ({ shopify }) => {
             </Breadcrumb>
 
             <Row>
-            <Col md className="justify-content-md-center">
-
-                            <Image fluid src={shopify?.featured_image} />
+            <Col md className="justify-content-md-center">             
+            <Carousel variant="dark" fade onSelect={handleSelect}>
+                            {shopify?.images.map((value, index) => (
+                                
+                                    <Carousel.Item>
+                                    <img
+                                    className="d-block w-100"
+                                    src={value}
+                                    alt="First slide"
+                                  />
+                                  </Carousel.Item>
+                                  
+                                
+                            ))}
+                               </Carousel>   
                     </Col>
                     <Col>
                     
@@ -79,26 +99,8 @@ const Results = ({ shopify }) => {
                             </Stack>
                             <hr />  
                             {console.log(shopify)}
-                            {shopify?.options.map((type) => (   
-                       
-                             <Stack direction="horizontal" gap={3} key={type.position}>
-                                <label className="radio">{type.name}</label>   
-        
-                                {type.values.map((value,index) =>(
-                                     <div key={index} >
-                         
-                                       <input className={`input-${type.name}`} style={{backgroundColor: value}} name={type.name} type="radio" aria-label="radio 1" />
-                                       <span className="check"></span>
-                                       
-                                       </div>
-                                        
-                                    ))}
-                                    
-                                    
-                                    
-                                </Stack>
-                                
-                            ))}
+                            <Details infDetails= {shopify?.options}/>
+                            
                             <hr />
 
                             <Row className="mt-4">
