@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/holk26/gradiweb/static/css/main.2e21e0ad.css",
+    "main.js": "/holk26/gradiweb/static/js/main.9f66a215.js",
+    "static/js/787.6f424f75.chunk.js": "/holk26/gradiweb/static/js/787.6f424f75.chunk.js",
+    "index.html": "/holk26/gradiweb/index.html",
+    "main.2e21e0ad.css.map": "/holk26/gradiweb/static/css/main.2e21e0ad.css.map",
+    "main.9f66a215.js.map": "/holk26/gradiweb/static/js/main.9f66a215.js.map",
+    "787.6f424f75.chunk.js.map": "/holk26/gradiweb/static/js/787.6f424f75.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e21e0ad.css",
+    "static/js/main.9f66a215.js"
+  ]
+}
