@@ -1,6 +1,6 @@
 {
-  "homepage": "https://github.com/holk26/gradiweb",
   "name": "gradiweb",
+  "homepage": "https://holk26.github.io/gradiweb/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
