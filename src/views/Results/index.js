@@ -1,22 +1,28 @@
-import { useState } from "react";
-import styles from "../../style.css"
+import { useEffect, useState } from "react";
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
-import Navbar from 'react-bootstrap/Navbar';
+import NavbarPage from './components/NavbarPage';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import Stack from 'react-bootstrap/Stack';
-import Image from 'react-bootstrap/Image'
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import Details from "./components/Details";
-import Figure from 'react-bootstrap/Figure';
-import Carousel from 'react-bootstrap/Carousel';
+import "../../style.css"
+
+import SliderShop from './components/SliderShop';
 
 const Results = ({ shopify }) => {
-    const valor = shopify?.price.toString().slice(0,-2);
+
+    const [shop, setShopify] = useState();
+
+    useEffect(() => {    
+        setShopify(shopify);
+      });
+      console.log(shop);
+   
+    let valor = shopify?.price.toString().slice(0,-2);
     const [total, setTotal] = useState(valor);
     const [cont, setCont] = useState(1);
 
@@ -38,72 +44,40 @@ const Results = ({ shopify }) => {
     };
 
     
-    const [index, setIndex] = useState(0);
 
-    const handleSelect = (selectedIndex, e) => {
-      setIndex(selectedIndex);
-    };
-    
     return(
         <>
         <ThemeProvider
-  breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
-  minBreakpoint="xxs"
->
-
-
-        <Navbar>
-      <Container>
-        <Navbar.Brand href="#home"></Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            Desarrollado por: <a href="https://github.com/holk26">Homero Cabrera A</a>
-          </Navbar.Text>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+                breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+                minBreakpoint="xxs">
+        <NavbarPage />
         <Container>
+
             <Breadcrumb>
                 <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-                <Breadcrumb.Item>
-                    Library
-                </Breadcrumb.Item>
+                <Breadcrumb.Item>Library</Breadcrumb.Item>
                 <Breadcrumb.Item active>{shopify?.title}</Breadcrumb.Item>
             </Breadcrumb>
 
             <Row className="margin mb-4">
             <Col md className="justify-content-md-center">             
-            <Carousel variant="dark" fade onSelect={handleSelect}>
-                            {shopify?.images.map((value, index) => (
-                                
-                                    <Carousel.Item>
-                                    <img
-                                    className="d-block w-100"
-                                    src={value}
-                                    alt="First slide"
-                                  />
-                                  </Carousel.Item>
-                                  
-                                
-                            ))}
-                               </Carousel>   
-                    </Col>
-                    <Col>
-                    
-                            <h6>{shopify?.vendor}</h6>
-                            <h1>{shopify?.title}</h1>
-                            <Stack direction="horizontal" gap={3}>
-                               <h2>{currency(valor)}</h2>
-                               <h5 style={{color: '#818181'}}><del>{currency(shopify?.compare_at_price.toString().slice(0,-2))}</del></h5>
-                            </Stack>
-                            <hr />  
-                            {console.log(shopify)}
-                            <Details infDetails= {shopify?.options}/>
-                            
-                            <hr />
+                  <SliderShop data={shopify?.images}/>
+            </Col>
+            <Col>          
+                 <h6>{shopify?.vendor}</h6>
+                 <h1>{shopify?.title}</h1>
+                 <Stack direction="horizontal" gap={3}>
+                        <h2>{currency(valor)}</h2>
+                        <h5 style={{color: '#818181'}}><del>{currency(shopify?.compare_at_price.toString().slice(0,-2))}</del></h5>
+                 </Stack>
+                 <hr />  
+                 {console.log(shopify)}
 
-                            <Row className="mt-4">
+                 <Details infDetails={shopify?.options}/>
+                            
+                 <hr />
+
+                 <Row className="mt-4">
                                 <Col>
                                 <ButtonGroup className="mb-2 border">
                                     <Button variant="flat" onClick={handlerMenosItems}>-</Button>
@@ -137,14 +111,6 @@ const Results = ({ shopify }) => {
                                    <div dangerouslySetInnerHTML={{__html: shopify?.description}}></div>
                                 </Col>
                             </Row>
-                            
-                           
-
-
-
-                            
-                            
-
 
                     
                     </Col>
@@ -154,9 +120,6 @@ const Results = ({ shopify }) => {
                 
       </ThemeProvider>
         </>   
-
-
-
                 
     );
 }

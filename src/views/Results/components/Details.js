@@ -1,54 +1,70 @@
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 import Stack from 'react-bootstrap/Stack';
-import { useEffect } from "react";
-
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import "../../../style.css"
+import { Col, Row } from "react-bootstrap";
 
 const Details = ({infDetails})  => {
 
-    console.log(infDetails);
-    const hello = (v1) =>{
-        console.log(v1);
-    
-    }
-    const hello2 = (v2) =>{
-        console.log(v2);
-    
-    }
-    
 
-    infDetails.map((value) =>(
-        hello(value.name==='Color'?value:""),
-        hello2(value.name==='Size'?value:"")
-    ));
-    
 
+    const handlerColor = (changeEvent) => {  
+          console.log(changeEvent.target.value);
+    }
+
+    const handlerSize = (changeEvent) => {  
+        console.log(changeEvent.target.value);
+  }
+
+    const renderIco = (data) => {
+        return(
+        data.map((value2,index) => (             
+                
+                
+                <div key={index}>
+                <Stack direction="horizontal" gap={0} id="stock-size-x" className="stock-size">
+
+                <label>{value2.name}</label>
+
+                {value2.values.map((value,index2) => (
+                     
+                     <div key={index2}>
+                     <label>
+                    {value2.name === 'Color' &&
+                      <div>
+                            <input onChange={handlerColor} type="radio" name={value2.name} value={value} />
+                            <span className="stock-colorX">{value}</span>
+                     </div>
+                     }
+
+                    {value2.name === 'Size' && 
+                    <div>
+                        <input onChange={handlerSize} type="radio" name={value2.name} className="stock-size-x" value={value} />
+                        <span>{value}</span>
+                    </div>
+                     }
+                       
+                    </label>
+                     </div>
+               
+                ))} 
+                </Stack>
+                </div>
+                 
+
+        )))
+    }
 
     return(
         <>
-                  {infDetails.map((type) => (   
-                       
-                       <Stack direction="horizontal" gap={1} key={type.position}>
-                          <label className="radio">{type.name}</label>   
-           
-                          {type.values.map((value,index) =>(
-                               <div key={index} >
-                                  {type.name.value}
-                   
-                                 <input className={`input-${type.name}`} style={{backgroundColor: value}} name={type.name} type="radio" aria-label="radio 1" />
-                                 <span className="check">{value}</span>
-                                 
-                                 </div>
-                                  
-                              ))}
-                              
-                              
-                              
-                          </Stack>
-                          
-                      ))}
-       
+        {renderIco(infDetails)}       
            </>
     )
 };
 
 export default Details;
+
+
+

@@ -27,9 +27,9 @@ const Home = () => {
         if (error) {
             return <p>{error.error}</p>
         } else if (isLoading || isFetching) {
-            return <div className="mx-auto" style="width: 200px;"> Centered element</div>
+            return <div className="mx-auto" style={{width: "200px"}}> Centered element</div>
         }else if (isSuccess && shopifyX?.available) {
-            console.log("cargue");
+            console.log(shopifyX.variants[6]);
             return <Results shopify={shopifyX}/>
         }
     };
