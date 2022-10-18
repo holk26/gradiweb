@@ -38,6 +38,7 @@ const Details = ({infDetails})  => {
                             <span className="stock-colorX">{value}</span>
                      </div>
                      }
+                     
 
                     {value2.name === 'Size' && 
                     <div>
