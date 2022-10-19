@@ -96,7 +96,7 @@ const Results = ({ shopify }) => {
                             <Row className="margin mt-2">
                                 <Col lg className="mt-2">
                                 <Button variant="flat" size="lg">
-                                Add to favourite
+                                Add to 
                             </Button>
                                 </Col>
                                 <Col className="mt-2">
