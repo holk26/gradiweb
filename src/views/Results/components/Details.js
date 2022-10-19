@@ -1,10 +1,5 @@
-import { useState, useEffect } from "react";
 import Stack from 'react-bootstrap/Stack';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import "../../../style.css"
-import { Col, Row } from "react-bootstrap";
 
 const Details = ({infDetails})  => {
 
