@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/gradiweb/static/css/main.2e21e0ad.css",
-    "main.js": "/gradiweb/static/js/main.fdbfed7e.js",
+    "main.js": "/gradiweb/static/js/main.84d2f885.js",
     "static/js/787.6f424f75.chunk.js": "/gradiweb/static/js/787.6f424f75.chunk.js",
     "index.html": "/gradiweb/index.html",
     "main.2e21e0ad.css.map": "/gradiweb/static/css/main.2e21e0ad.css.map",
-    "main.fdbfed7e.js.map": "/gradiweb/static/js/main.fdbfed7e.js.map",
+    "main.84d2f885.js.map": "/gradiweb/static/js/main.84d2f885.js.map",
     "787.6f424f75.chunk.js.map": "/gradiweb/static/js/787.6f424f75.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2e21e0ad.css",
-    "static/js/main.fdbfed7e.js"
+    "static/js/main.84d2f885.js"
   ]
 }
