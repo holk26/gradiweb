@@ -28,15 +28,9 @@
   }
 
 
-/* Solo para separar un poco, aplica tus propios estilos */
 .stock-size {
   
   padding:10px;
-}
-
-.stock-sizeX{
-
-
 }
 
 
@@ -45,11 +39,11 @@
   background:rgb(168, 2, 2);
   
 }
-/* Los radios dentro de etiqueta no son visibles */
+
 .stock-size label input[type="radio"] {
   display:none;
 }
-/* Estilos generales de spans cuando el radio no está seleccionado */
+
 .stock-size label span {
   color:black;
   background:white;
@@ -59,12 +53,12 @@
   min-width: 400px;
   padding:2px 5px;
 }
-/* Cambiar span cuando el radio está deshabilitado */
+
 .stock-size label input[type="radio"]:disabled ~ span {
   color:#ccc;
   background:#777;
 }
-/* Cambiar span cuando se selecciona un radio */
+
 .stock-size label input[type="radio"]:checked ~ span {
   color:white;
   background:black;
